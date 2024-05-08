@@ -1,13 +1,11 @@
+import supabase from "../util/supabase"
 import { SessionProduct } from "../models/sesiones_productos";
-import supabase from "../util/supabase";
 
-
-export const getProductSessions = async (): Promise<SessionProduct[]> => {
-  const { data, error } = await supabase.from("sesiones_productos").select();
-  if (error) {
-    console.error("Error fetching products:", error);
-  } else {
-    console.log("sesiones_productos:", data); // Agrega esta línea para imprimir los datos
-  }
-  return data || []; 
+export const getSesionProductos = async (): Promise<SessionProduct[]> => {
+    const { data , error} = await supabase.from("sesiones_productos").select();
+    if (error) throw error;
+    else{
+        console.log ("SessionProduct:", data);
+    }
+   return data || []; 
 }

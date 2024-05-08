@@ -1,9 +1,11 @@
+import supabase from "../util/supabase"
 import { Product } from "../models/product";
-import supabase from "../util/supabase";
 
-
-export const getProducts = async (): Promise<Product[]> => {
+export const getProductos = async (): Promise<Product[]> => {
     const { data , error} = await supabase.from("productos").select();
     if (error) throw error;
-    return data
+    else{
+        console.log ("Product:", data);
+    }
+   return data || []; 
 }
