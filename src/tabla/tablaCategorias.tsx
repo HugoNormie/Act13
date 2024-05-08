@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getCategories } from "../services/categorias";
+import { getCategorias } from "../services/categorias";
 import { Table } from "antd";
 import { Category } from "../models/categorias";
 
@@ -9,7 +9,7 @@ const TablaCategorias: React.FC = () => {
   useEffect(() => {
     const fetchCategory = async () => {
       try {
-        const categories = await getCategories();
+        const categories = await getCategorias();
         setCategory(categories);
       } catch (error) {
         console.error("Error fetching products:", error);
@@ -21,7 +21,7 @@ const TablaCategorias: React.FC = () => {
 
   const columns = [
     {
-        title: 'ID_Categoria',
+        title: 'id_categoria',
         dataIndex: 'id_categoria',
         key: 'id_categoria',
         
@@ -54,12 +54,6 @@ const TablaCategorias: React.FC = () => {
         title: 'fk_actualizado_por',
         dataIndex: 'fk_actualizado_por',
         key: 'fk_actualizado_por',
-      },
-      
-      {
-        title: 'fecha_eliminacion',
-        dataIndex: 'fecha_eliminacion',
-        key: 'fecha_eliminacion',
       },
       {
         title: 'fk_eliminado_por',

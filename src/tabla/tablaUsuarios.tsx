@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getUsers } from "../services/usuarios";
+import { getUsuarios } from "../services/usuarios";
 import { Table } from "antd";
 import { User } from "../models/usuarios";
 
@@ -9,7 +9,7 @@ const TablaUsuarios: React.FC = () => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const user = await getUsers();
+        const user = await getUsuarios();
         setUser(user);
       } catch (error) {
         console.error("Error fetching products:", error);

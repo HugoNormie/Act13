@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getSessions } from "../services/sesiones";
+import { getSesiones } from "../services/sesiones";
 import { Table } from "antd";
 import { Session } from "../models/sesiones";
 
@@ -9,7 +9,7 @@ const TablaSesiones: React.FC = () => {
   useEffect(() => {
     const fetchSession = async () => {
       try {
-        const session = await getSessions();
+        const session = await getSesiones();
         setSessions(session);
       } catch (error) {
         console.error("Error fetching products:", error);

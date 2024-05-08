@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getGenders } from "../services/genero";
+import { getGenero } from "../services/genero";
 import { Table } from "antd";
 import { IGenero } from "../models/genero";
 
@@ -9,7 +9,7 @@ const TablaGenero: React.FC = () => {
   useEffect(() => {
     const fetchGender = async () => {
       try {
-        const gender = await getGenders();
+        const gender = await getGenero();
         setGender(gender);
       } catch (error) {
         console.error("Error fetching products:", error);
@@ -37,17 +37,17 @@ const TablaGenero: React.FC = () => {
         dataIndex: 'fecha_creacion',
         key: 'fecha_creacion',
       },
-      
-      {
-        title: 'fk_CreadoPor',
-        dataIndex: 'fk_creado_por',
-        key: 'fk_creado_por',
-      },
-      
+
       {
         title: 'fecha_actualizacion',
         dataIndex: 'fecha_actualizacion',
         key: 'fecha_actualizacion',
+      },
+
+      {
+        title: 'fk_creadoPor',
+        dataIndex: 'fk_creado_por',
+        key: 'fk_creado_por',
       },
       
       {

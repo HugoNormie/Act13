@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getCustomers } from "../services/clientes";
+import { getCliente } from "../services/clientes";
 import { Table } from "antd";
 import { Client } from "../models/clientes";
 
@@ -9,7 +9,7 @@ const TablaCliente: React.FC = () => {
   useEffect(() => {
     const fetchClients = async () => {
       try {
-        const clientes = await getCustomers();
+        const clientes = await getCliente();
         setCliente(clientes);
       } catch (error) {
         console.error("Error fetching products:", error);

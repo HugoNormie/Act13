@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { getAdresses } from "../services/direccion";
+import { getDireccion } from "../services/direccion";
 import { Table } from "antd";
 import { Direction } from "../models/direccion";
 
-const TablaDireccion: React.FC = () => {
+const tablaDireccion: React.FC = () => {
   const [direction, setDirection] = useState<Direction[]>([]);
 
   useEffect(() => {
     const fetchDirection = async () => {
       try {
-        const direction = await getAdresses();
+        const direction = await getDireccion();
         setDirection(direction);
       } catch (error) {
         console.error("Error fetching products:", error);
@@ -25,6 +25,11 @@ const TablaDireccion: React.FC = () => {
         dataIndex: 'id_direccion',
         key: 'id_direccion',
         
+      },
+      {
+        title: 'colonia',
+        dataIndex: 'colonia',
+        key: 'colonia',
       },
       {
         title: 'Codigo_Postal',
@@ -96,4 +101,4 @@ const TablaDireccion: React.FC = () => {
   );
 }
 
-export default TablaDireccion;
+export default tablaDireccion;

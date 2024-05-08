@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getProducts } from "../services/product";
+import { getProductos } from "../services/product";
 import { Table } from "antd";
 import { Product } from "../models/product";
 
@@ -9,7 +9,7 @@ const TablaProductos: React.FC = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const products = await getProducts();
+        const products = await getProductos();
         setProducts(products);
       } catch (error) {
         console.error("Error fetching products:", error);
@@ -22,8 +22,8 @@ const TablaProductos: React.FC = () => {
   const columns = [
     {
       title: 'ID_Producto',
-      dataIndex: 'id_producto',
-      key: 'id_Producto',
+      dataIndex: 'id_productos',
+      key: 'id_Productos',
 
     },
     {

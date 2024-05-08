@@ -6,7 +6,7 @@ export const getGenero = async (): Promise<IGenero[]> => {
     const { data , error} = await supabase.from("genero").select();
     if (error) throw error;
     else{
-        console.log ("Gender:", data);
+        console.log ("gender:", data);
     }
    return data || []; 
 }
