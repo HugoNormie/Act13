@@ -1,9 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { getCategorias } from "../services/categorias";
-import { Table } from "antd";
+import { Form, Input, Table } from "antd";
 import { Category } from "../models/categorias";
+import { Button, Drawer } from 'antd';
+import DrawerFooter from "./DrawerFooter";
 
 const TablaCategorias: React.FC = () => {
+  const [open, setOpen] = useState(false);
+
+  const showDrawer = () => {
+    setOpen(true);
+  };
+
+  const onClose = () => {
+    setOpen(false);
+  };
   const [category, setCategory] = useState<Category[]>([]);
 
   useEffect(() => {
@@ -64,6 +75,21 @@ const TablaCategorias: React.FC = () => {
 
   return (
     <>
+    <Button type="primary" onClick={showDrawer}>
+        Open
+      </Button>
+      <Drawer title="Basic Drawer" onClose={onClose} open={open}footer={<DrawerFooter/>}>
+      <Form>
+          <Form.Item label="nombre de usuario"
+          name="nombre"> 
+            <Input/>
+          </Form.Item>
+          <Form.Item label="apellido de usuario"
+          name="apellido"> 
+            <Input/>
+          </Form.Item>
+        </Form>
+      </Drawer>
       <Table
         columns={columns}
         dataSource={category}
