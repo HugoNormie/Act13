@@ -1,8 +1,10 @@
 export interface User {
-    id_user: 1;
-    name: string;
-    last_name?: string | null;
-    created_date: Date;
-    created_by?: number | null;
-    email?: string | null;
-}
+    id_usuario: number;
+    nombre: string;
+    fechacreacion: Date;
+    fk_creadopor?: number | null;
+    fechaactu?: Date| null;
+    fk_actualizadopor?: number| null;
+    fechaeliminado?: Date | null;
+    fk_eliminadopor?: number | null;
+    }

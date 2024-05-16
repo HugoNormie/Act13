@@ -7,8 +7,12 @@ export const getCategorias = async (): Promise<Category[]> => {
         console.error("Error fetching category:", error);
       } else {
         console.log("Category:", data);
-         // Agrega esta línea para imprimir los datos
       }
       return data || []; 
 
+}
+
+export const createCategoria = async (categoria: Category): Promise<void> => {
+  const { error} = await supabase.from("categorias").insert(categoria);
+  if (error) throw error;
 }

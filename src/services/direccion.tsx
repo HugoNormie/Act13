@@ -9,3 +9,8 @@ export const getDireccion = async (): Promise<Direction[]> => {
     }
    return data || []; 
 }
+
+export const createDireccion = async (direccion: Direction): Promise<void> => {
+    const { error} = await supabase.from("direccion").insert(direccion);
+    if (error) throw error;
+  }

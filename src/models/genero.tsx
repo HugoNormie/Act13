@@ -1,10 +1,10 @@
-export interface IGenero {
-    id_genero: 1,
-    genero: "Femenino",
-    fecha_creacion: "2024-03-08T06:51:17.000Z",
-    fecha_actualizacion: "2024-03-08T06:51:17.000Z",
-    fk_creado_por: 1,
-    fk_actualizado_por: 1,
-    fecha_eliminacion: "2024-03-08T06:51:17.000Z",
-    fk_eliminadopor: 0
-  } 
+export interface Gender {
+  id_genero: number;
+  genero: string;
+  fechacreacion: Date;
+  fk_creadopor?: number | null;
+  fechaact?: Date| null;
+  fk_actualizadopor?: number| null;
+  fechaeliminado?: Date | null;
+  fk_eliminadopor?: number | null;
+  }
